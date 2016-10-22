@@ -22,6 +22,60 @@ summary(df1)
 ?month.name
 ?month.abb
 ?state.abb
+df1$Month_Full <-
+sapply(df1$month,function(x)
+{
+if(x=="jan")
+  {
+   x <- as.factor("January")
+}
+  if(x=="feb")
+  {
+    x <- as.factor("February")
+  }
+  if(x=="mar")
+  {
+    x <- as.factor("March")
+  }
+  if(x=="apr")
+  {
+    x <- as.factor("April")
+  }
+  if(x=="may")
+  {
+    x <- as.factor("May")
+  }
+  if(x=="jun")
+  {
+    x <- as.factor("June")
+  }
+  if(x=="jul")
+  {
+    x <- as.factor("July")
+  }
+  if(x=="aug")
+  {
+    x <- as.factor("August")
+  }
+  if(x=="sep")
+  {
+    x <- as.factor("September")
+  }
+  if(x=="oct")
+  {
+    x <- as.factor("October")
+  }
+  if(x=="nov")
+  {
+    x <- as.factor("November")
+  }
+  if(x=="dec")
+  {
+    x <- as.factor("December")
+  }
+ return( x )
+})
+
 df3<-df1
 df3$Month<-month.name[match(df3$month,month.abb)]
 str(df3)
@@ -31,6 +85,41 @@ str(df3)
 ?as.Date
 df4<-df1
 df4$Day_Num<-(format(df4$day, format="%d"))
+
+df1$Day_Num <-
+  sapply(df1$day,function(x)
+  {
+    if(x=="sun")
+    {
+      x <- as.factor("1")
+    }
+    if(x=="mon")
+    {
+      x <- as.factor("2")
+    }
+    if(x=="tue")
+    {
+      x <- as.factor("3")
+    }
+    if(x=="wed")
+    {
+      x <- as.factor("4")
+    }
+    if(x=="thu")
+    {
+      x <- as.factor("5")
+    }
+    if(x=="fri")
+    {
+      x <- as.factor("6")
+    }
+    if(x=="sat")
+    {
+      x <- as.factor("7")
+    }
+    
+    return( x )
+  })
 
   
 ##5.	Find the correlation coefficient X and Y 
